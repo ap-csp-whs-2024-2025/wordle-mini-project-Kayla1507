@@ -32,11 +32,21 @@ int main()
     // Uncomment the code when you are finished testing your program
     // and want to have the program run for real
 
-    srand(time(0));
-    int random_num = rand() % 10;    // random number between 0 and 9
-    // need to somehow make it run 4 times and input those 4 numbers in secret code 
-    
     std::vector<int> secret_code = createSecret();
+    
+    srand(time(0));  // Seed the random number generator
+    int x = 1;
+    std::vector<int> createSecret;  // Create a vector to store the random numbers
+
+    while (x <= 4) {
+        int random_num = rand() % 10;  // Generate random number between 0 and 9
+        createSecret.push_back(random_num);  // Append random number to vector
+        x++;  // Increment x to avoid infinite loop
+    }
+    
+   
+    
+    
     std::vector<int> user_guess = {};
     std::vector<std::string> hint = {};    // an empty list
 
