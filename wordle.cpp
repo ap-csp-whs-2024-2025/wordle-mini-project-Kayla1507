@@ -12,13 +12,35 @@
 #include <vector>    // std::vector
 
 std::vector<int> createSecret() {
-    // Write this procedure here
-    return {};    // replace this with your code
+   std::vector <int> code = {}; 
+   int counter = 0;
+   while (counter < 4) //REPEAT 4 TIMES
+   {
+    int val = rand() % 10; // random num between 0 and 9
+    code.push_back(val);   // appeand (code, val)
+    counter = counter + 1;
+   }
+   return code;
 }
 
 std::vector<std::string> getHint(std::vector<int> secret, std::vector<int> guess) {
-    // Write this procedure here
-    return {"X", "X", "X", "X"};    // replace this with your code
+    std::vector<std::string> hint = {};
+    int index;
+    index = 0;
+    while (index < secret.size())
+    {
+        if (secret[index] == guess[index])
+        {
+            hint.push_back("O");
+        }
+        else
+        {
+            hint.push_back("X");
+        }
+        index = index + 1;
+    }
+
+    return {hint};    // replace this with your code
 }
 
 bool winGame(std::vector<int> secret, std::vector<int> guess) {
@@ -32,21 +54,8 @@ int main()
     // Uncomment the code when you are finished testing your program
     // and want to have the program run for real
 
-    std::vector<int> secret_code = createSecret();
-    
-    srand(time(0));  // Seed the random number generator
-    int x = 1;
-    std::vector<int> createSecret;  // Create a vector to store the random numbers
-
-    while (x <= 4) {
-        int random_num = rand() % 10;  // Generate random number between 0 and 9
-        createSecret.push_back(random_num);  // Append random number to vector
-        x++;  // Increment x to avoid infinite loop
-    }
-    
-   
-    
-    
+    std::cout << createSecret << std::endl;
+    std::vector<int> secret_code = createSecret();  // Create a vector to store the random numbers
     std::vector<int> user_guess = {};
     std::vector<std::string> hint = {};    // an empty list
 
