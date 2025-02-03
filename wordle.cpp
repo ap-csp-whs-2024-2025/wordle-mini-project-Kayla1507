@@ -20,7 +20,7 @@ std::vector<int> createSecret() {
     code.push_back(val);   // appeand (code, val)
     counter = counter + 1;
    }
-   return code;
+   return (code);
 }
 
 std::vector<std::string> getHint(std::vector<int> secret, std::vector<int> guess) {
@@ -44,17 +44,18 @@ std::vector<std::string> getHint(std::vector<int> secret, std::vector<int> guess
 }
 
 bool winGame(std::vector<int> secret, std::vector<int> guess) {
-    // Write this procedure here
-    return false;    // replace this with your code
+    {
+     return secret == guess; 
+    }
+   
 }
 
 int main()
 {
-    // Seeding the random number generator
-    // Uncomment the code when you are finished testing your program
-    // and want to have the program run for real
 
-    std::cout << createSecret << std::endl;
+    srand(time(0));     //seeds random number generator
+    int random_num = rand() % 10; 
+    
     std::vector<int> secret_code = createSecret();  // Create a vector to store the random numbers
     std::vector<int> user_guess = {};
     std::vector<std::string> hint = {};    // an empty list
@@ -62,12 +63,15 @@ int main()
     int secret_code_length = 4;
     int num_guesses = 0;
 
+    display(secret_code);
+
     std::cout << "Welcome to Number Wordle!\n";
     
     while (!winGame(secret_code, user_guess))    // while you have not won the game yet
     {
-        std::cout << "\nEnter your guess: ";
+        std::cout << "\nEnter your guess (put spaces to separate numbers): ";
         hint = {};    // reset the hint for the next guess
+        user_guess = {}; // resets guess
         for (int counter = 0; counter < secret_code_length; counter = counter + 1)
         {
             int input;
