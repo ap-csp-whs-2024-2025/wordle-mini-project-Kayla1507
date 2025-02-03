@@ -70,7 +70,6 @@ int main()
     while (!winGame(secret_code, user_guess))    // while you have not won the game yet
     {
         std::cout << "\nEnter your guess (put spaces to separate numbers): ";
-        hint = {};    // reset the hint for the next guess
         user_guess = {}; // resets guess
         for (int counter = 0; counter < secret_code_length; counter = counter + 1)
         {
