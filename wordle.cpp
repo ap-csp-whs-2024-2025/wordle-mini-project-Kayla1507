@@ -40,7 +40,7 @@ std::vector<std::string> getHint(std::vector<int> secret, std::vector<int> guess
         index = index + 1;
     }
 
-    return {hint};    // replace this with your code
+    return {hint};                                                                      
 }
 
 bool winGame(std::vector<int> secret, std::vector<int> guess) {
@@ -67,15 +67,15 @@ int main()
 
     std::cout << "Welcome to Number Wordle!\n";
     
-    while (!winGame(secret_code, user_guess))    // while you have not won the game yet
+    while (!winGame(secret_code, user_guess))                                           // while you have not won the game yet
     {
         std::cout << "\nEnter your guess (put spaces to separate numbers): ";
-        user_guess = {}; // resets guess
+        user_guess = {};                                                                // resets guess
         for (int counter = 0; counter < secret_code_length; counter = counter + 1)
         {
             int input;
             std::cin >> input;
-            user_guess.push_back(input);    // can also do append(guess, input);
+            user_guess.push_back(input);    
         }
 
         hint = getHint(secret_code, user_guess);
